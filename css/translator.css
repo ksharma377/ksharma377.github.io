@@ -78,7 +78,7 @@ button:active {
 	height: 40px;
 	width: 100%;
 	background-color: #f1f1f1;
-	color: #808b96;
+	color: #757575 !important;
 	border-top: 1px solid #e4e4e4;
 	overflow: hidden;
 	font-family: arial, sans-serif;
