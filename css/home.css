@@ -1,0 +1,27 @@
+.cool-link {
+	background: #AED6F1 !important;
+	display: inline-block;
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px;
+	padding: 10px;
+	padding-left: 10px;
+	font-family: saira;
+}
+
+.cool-image {
+	display: inline-block;
+	line-height: 30px;
+	height: 30px;
+	width: 30px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.cool-description {
+	display: inline-block;
+	line-height: 30px;
+	margin: 0px;
+	padding: 0px;
+}
