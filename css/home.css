@@ -1,27 +1,39 @@
+* {
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.top-bar {
+	background-color: #f1f1f1;
+	color: #808b96;
+	padding: 20px;
+	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
+	font-size: 28px;
+	text-align: center;
+}
+
 .cool-link {
 	background: #AED6F1 !important;
-	display: inline-block;
+	display: inline-flex;
 	width: 200px;
 	height: 30px;
 	line-height: 30px;
 	border-radius: 5px;
 	padding: 10px;
-	padding-left: 10px;
+	margin: 10px;
 	font-family: saira;
+	transition: 0.3s;
 }
 
-.cool-image {
-	display: inline-block;
-	line-height: 30px;
-	height: 30px;
-	width: 30px;
-	margin: 0px;
-	padding: 0px;
+.cool-link img {
+	margin-right: 10px;
 }
 
-.cool-description {
-	display: inline-block;
-	line-height: 30px;
-	margin: 0px;
-	padding: 0px;
+.cool-link:hover {
+	padding-left: 20px;
+	width: 190px;
+	transition: 0.3s;
 }
