@@ -26,7 +26,7 @@ a {
 	padding: 10px;
 	margin: 10px;
 	font-family: saira;
-	transition: 0.3s;
+	transition: 0.5s;
 }
 
 .cool-link img {
@@ -35,7 +35,7 @@ a {
 
 .cool-link:hover {
 	background: #85c1e9;
-	transition: 0.3s;
+	transition: 0.5s;
 }
 
 .just-fit {
