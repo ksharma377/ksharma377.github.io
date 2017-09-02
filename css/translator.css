@@ -13,16 +13,16 @@ body {
 }
 
 textarea {
-	margin-top: 50px;
-	margin-bottom: 50px;
-	width: 50%;
+	margin-top: 50px !important;
+	margin-bottom: 40px !important;
+	width: 70%;
 	padding: 10px;
 	text-align: left;
 	border: 1px solid lightgrey;
 	border-radius: 2px;
 	resize: none;
 	font-family: arial, sans-serif;
-	font-size: 16px;
+	font-size: 16px !important;
 	outline: none;
 }
 
@@ -36,15 +36,15 @@ textarea:active {
 
 button {
 	background-color: #f2f2f2;
-	color: #757575;
-	font-weight: bold;
-	font-size: 13px;
+	color: #757575 !important;
+	font-weight: bold !important;
+	font-size: 13px !important;
 	padding: 12px;
 	border-radius: 2px;
 	border: 1px solid #f0f0f0;
 	padding-left: 18px;
 	padding-right: 18px;
-	margin: 0px 10px 50px 10px;
+	margin: 0px 10px 50px 10px !important;
 	outline: none;
 }
 
@@ -82,16 +82,16 @@ button:active {
 	border-top: 1px solid #e4e4e4;
 	overflow: hidden;
 	font-family: arial, sans-serif;
-	font-size: 13px;
+	font-size: 13px !important;
 	line-height: 40px;
 }
 
 #top-bar {
 	background-color: #f1f1f1;
 	color: #808b96;
-	padding: 20px;
+	padding: 15px;
 	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
-	font-size: 28px;
+	font-size: 28px !important;
 }
 
 #container {

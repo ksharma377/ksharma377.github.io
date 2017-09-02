@@ -3,13 +3,13 @@
 }
 
 a {
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 .top-bar {
 	background-color: #f1f1f1;
 	color: #808b96;
-	padding: 20px;
+	padding: 15px;
 	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
 	font-size: 28px;
 	text-align: center;
@@ -17,9 +17,10 @@ a {
 
 .cool-link {
 	background: #aed6f1;
+	color: black;
 	display: inline-flex;
-	width: 200px;
-	height: 30px;
+	width: 30%;
+	height: 100px;
 	line-height: 30px;
 	border-radius: 5px;
 	padding: 10px;
@@ -33,7 +34,10 @@ a {
 }
 
 .cool-link:hover {
-	padding-left: 20px;
-	width: 190px;
+	background: #85c1e9;
 	transition: 0.3s;
+}
+
+.just-fit {
+	display: inline-flex;
 }
