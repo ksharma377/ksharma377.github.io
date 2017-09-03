@@ -22,10 +22,12 @@ a {
 	border-radius: 10px;
 	padding: 10px;
 	margin: 10px 0px 0px 10px;
-	font-family: "Raleway", sans-serif !important;
+	font-family: "Raleway", sans-serif, arial !important;
 	font-size: 16px;
 	transition: 0.5s;
 	text-align: center;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 .cool-link img {
@@ -39,12 +41,8 @@ a {
 
 #translator {
 	background-image: url("../images/translator.jpg");
-	background-size: contain;
-	background-repeat: no-repeat;
 }
 
 #sudoku-solver {
 	background-image: url("../images/sudoku-solver.jpg");
-	background-size: contain;
-	background-repeat: no-repeat;
 }

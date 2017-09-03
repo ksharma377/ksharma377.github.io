@@ -2,10 +2,81 @@
 	text-align: center;
 }
 
+body {
+	background-image: url("../images/sudoku-solver-background.jpg");
+	background-size: cover;
+}
+
 .top-bar {
 	background-image: url("../images/sudoku-solver-top-bar.jpg");
 	color: white;
 	padding: 15px;
 	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
 	font-size: 28px !important;
+}
+
+#puzzle-grid {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.row {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.col {
+	width: 40px !important;
+	height: 40px !important;
+	display: inline-block;
+	line-height: 40px;
+	border-radius: 3px;
+	color: white;
+	font-family: consolas !important;
+	font-size: 24px;
+}
+
+input {
+	height: 40px;
+	width: 40px;
+	line-height: 40px;
+	color: white;
+	margin: 0px;
+	border: 1px none;
+	border-radius: 2px;
+	outline: none;
+}
+
+input:hover {
+	border: 1px solid #ca6f1e;
+}
+
+.light input {
+	background-color: #f0b27a;
+}
+
+.dark input {
+	background-color: #eb984e;
+}
+
+#solve-button {
+	background-color: #eb9843;
+	color: white;
+	height: 40px;
+	width: 100px;
+	border: 1px solid #ca6f1e;
+	border-radius: 5px;
+	font-size: 16px;
+	outline: none;
+	transition: 0.5s;
+}
+
+#solve-button:hover {
+	transition: 0.5s;
+	background-color: #ca6f1e;
+	border: 1px solid #ca6f1e;
+}
+
+#solve-button:active {
+	border: 1px solid #ca6f1e;
 }
