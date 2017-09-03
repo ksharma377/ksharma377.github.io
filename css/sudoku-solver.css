@@ -1,0 +1,11 @@
+* {
+	text-align: center;
+}
+
+.top-bar {
+	background-image: url("../images/sudoku-solver-top-bar.jpg");
+	color: white;
+	padding: 15px;
+	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
+	font-size: 28px !important;
+}
