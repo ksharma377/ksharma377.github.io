@@ -19,8 +19,10 @@ img {
 	max-height: 100% !important;
 }
 
-#app-content {
+#app-container {
 	padding: 50px;
+	width: auto;
+	margin: auto;
 }
 
 .top-bar {
@@ -43,6 +45,7 @@ img {
 	margin: 20px;
 	font-family: "Raleway", sans-serif, arial !important;
 	font-size: 16px;
+	float: left;
 	transition: 0.5s;
 	background-size: contain;
 	background-repeat: no-repeat;
