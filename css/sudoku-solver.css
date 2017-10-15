@@ -3,8 +3,9 @@
 }
 
 body {
-	background-image: url("../images/sudoku-solver-background.jpg");
-	background-size: cover;
+	/*background-image: url("../images/sudoku-solver-background.jpg");
+	background-size: cover;*/
+	background-color: #fad7a0 !important;
 }
 
 .top-bar {

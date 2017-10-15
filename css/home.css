@@ -1,11 +1,19 @@
+* {
+	color: #f2f3f4 !important;
+}
+
 a {
 	text-decoration: none !important;
 	margin: 0px;
 }
 
+body {
+	background-color: #bfc9ca !important;
+	min-height: 100%;
+}
+
 .top-bar {
-	background-color: black;
-	color: white;
+	background-color: #5d6d7e;
 	padding: 15px;
 	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
 	font-size: 28px;
@@ -37,6 +45,20 @@ a {
 .cool-link:hover {
 	opacity: 0.5;
 	transition: 0.5s;
+}
+
+.custom-footer {
+	position: absolute;
+	bottom: 0px;
+	height: 40px;
+	width: 100%;
+	background-color: #85929e;
+	border-top: 1px solid #5d6d7e;
+	overflow: hidden;
+	font-family: arial, sans-serif;
+	font-size: 13px !important;
+	line-height: 40px;
+	text-align: center;
 }
 
 #translator {
