@@ -7,8 +7,8 @@
 	<link rel="shortcut icon" type="image/jpg" href="images/sudoku-solver-icon.jpg">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/sudoku-solver.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/sudoku-solver.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/sudoku-solver.js"></script>
@@ -17,271 +17,275 @@
 	<div class="top-bar">
 		Sudoku Solver
 	</div>
-	<div id="puzzle-grid" class="container">
-		<div class="row">
-			<div class="col light">
-				<input id="11" type="text">
+	<div id="container">
+		<div id="puzzle-grid">
+			<div class="custom-row">
+				<div class="cell light">
+					<input id="11" type="text">
+				</div>
+				<div class="cell light">
+					<input id="12" type="text">
+				</div>
+				<div class="cell light">
+					<input id="13" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="14" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="15" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="16" type="text">
+				</div>
+				<div class="cell light">
+					<input id="17" type="text">
+				</div>
+				<div class="cell light">
+					<input id="18" type="text">
+				</div>
+				<div class="cell light">
+					<input id="19" type="text">
+				</div>
 			</div>
-			<div class="col light">
-				<input id="12" type="text">
+			<div class="custom-row">
+				<div class="cell light">
+					<input id="21" type="text">
+				</div>
+				<div class="cell light">
+					<input id="22" type="text">
+				</div>
+				<div class="cell light">
+					<input id="23" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="24" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="25" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="26" type="text">
+				</div>
+				<div class="cell light">
+					<input id="27" type="text">
+				</div>
+				<div class="cell light">
+					<input id="28" type="text">
+				</div>
+				<div class="cell light">
+					<input id="29" type="text">
+				</div>
 			</div>
-			<div class="col light">
-				<input id="13" type="text">
+			<div class="custom-row">
+				<div class="cell light">
+					<input id="31" type="text">
+				</div>
+				<div class="cell light">
+					<input id="32" type="text">
+				</div>
+				<div class="cell light">
+					<input id="33" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="34" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="35" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="36" type="text">
+				</div>
+				<div class="cell light">
+					<input id="37" type="text">
+				</div>
+				<div class="cell light">
+					<input id="38" type="text">
+				</div>
+				<div class="cell light">
+					<input id="39" type="text">
+				</div>
 			</div>
-			<div class="col dark">
-				<input id="14" type="text">
+			<div class="custom-row">
+				<div class="cell dark">
+					<input id="41" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="42" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="43" type="text">
+				</div>
+				<div class="cell light">
+					<input id="44" type="text">
+				</div>
+				<div class="cell light">
+					<input id="45" type="text">
+				</div>
+				<div class="cell light">
+					<input id="46" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="47" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="48" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="49" type="text">
+				</div>
 			</div>
-			<div class="col dark">
-				<input id="15" type="text">
+			<div class="custom-row">
+				<div class="cell dark">
+					<input id="51" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="52" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="53" type="text">
+				</div>
+				<div class="cell light">
+					<input id="54" type="text">
+				</div>
+				<div class="cell light">
+					<input id="55" type="text">
+				</div>
+				<div class="cell light">
+					<input id="56" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="57" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="58" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="59" type="text">
+				</div>
 			</div>
-			<div class="col dark">
-				<input id="16" type="text">
+			<div class="custom-row">
+				<div class="cell dark">
+					<input id="61" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="62" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="63" type="text">
+				</div>
+				<div class="cell light">
+					<input id="64" type="text">
+				</div>
+				<div class="cell light">
+					<input id="65" type="text">
+				</div>
+				<div class="cell light">
+					<input id="66" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="67" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="68" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="69" type="text">
+				</div>
 			</div>
-			<div class="col light">
-				<input id="17" type="text">
+			<div class="custom-row">
+				<div class="cell light">
+					<input id="71" type="text">
+				</div>
+				<div class="cell light">
+					<input id="72" type="text">
+				</div>
+				<div class="cell light">
+					<input id="73" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="74" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="75" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="76" type="text">
+				</div>
+				<div class="cell light">
+					<input id="77" type="text">
+				</div>
+				<div class="cell light">
+					<input id="78" type="text">
+				</div>
+				<div class="cell light">
+					<input id="79" type="text">
+				</div>
 			</div>
-			<div class="col light">
-				<input id="18" type="text">
+			<div class="custom-row">
+				<div class="cell light">
+					<input id="81" type="text">
+				</div>
+				<div class="cell light">
+					<input id="82" type="text">
+				</div>
+				<div class="cell light">
+					<input id="83" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="84" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="85" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="86" type="text">
+				</div>
+				<div class="cell light">
+					<input id="87" type="text">
+				</div>
+				<div class="cell light">
+					<input id="88" type="text">
+				</div>
+				<div class="cell light">
+					<input id="89" type="text">
+				</div>
 			</div>
-			<div class="col light">
-				<input id="19" type="text">
+			<div class="custom-row">
+				<div class="cell light">
+					<input id="91" type="text">
+				</div>
+				<div class="cell light">
+					<input id="92" type="text">
+				</div>
+				<div class="cell light">
+					<input id="93" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="94" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="95" type="text">
+				</div>
+				<div class="cell dark">
+					<input id="96" type="text">
+				</div>
+				<div class="cell light">
+					<input id="97" type="text">
+				</div>
+				<div class="cell light">
+					<input id="98" type="text">
+				</div>
+				<div class="cell light">
+					<input id="99" type="text">
+				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col light">
-				<input id="21" type="text">
-			</div>
-			<div class="col light">
-				<input id="22" type="text">
-			</div>
-			<div class="col light">
-				<input id="23" type="text">
-			</div>
-			<div class="col dark">
-				<input id="24" type="text">
-			</div>
-			<div class="col dark">
-				<input id="25" type="text">
-			</div>
-			<div class="col dark">
-				<input id="26" type="text">
-			</div>
-			<div class="col light">
-				<input id="27" type="text">
-			</div>
-			<div class="col light">
-				<input id="28" type="text">
-			</div>
-			<div class="col light">
-				<input id="29" type="text">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col light">
-				<input id="31" type="text">
-			</div>
-			<div class="col light">
-				<input id="32" type="text">
-			</div>
-			<div class="col light">
-				<input id="33" type="text">
-			</div>
-			<div class="col dark">
-				<input id="34" type="text">
-			</div>
-			<div class="col dark">
-				<input id="35" type="text">
-			</div>
-			<div class="col dark">
-				<input id="36" type="text">
-			</div>
-			<div class="col light">
-				<input id="37" type="text">
-			</div>
-			<div class="col light">
-				<input id="38" type="text">
-			</div>
-			<div class="col light">
-				<input id="39" type="text">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col dark">
-				<input id="41" type="text">
-			</div>
-			<div class="col dark">
-				<input id="42" type="text">
-			</div>
-			<div class="col dark">
-				<input id="43" type="text">
-			</div>
-			<div class="col light">
-				<input id="44" type="text">
-			</div>
-			<div class="col light">
-				<input id="45" type="text">
-			</div>
-			<div class="col light">
-				<input id="46" type="text">
-			</div>
-			<div class="col dark">
-				<input id="47" type="text">
-			</div>
-			<div class="col dark">
-				<input id="48" type="text">
-			</div>
-			<div class="col dark">
-				<input id="49" type="text">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col dark">
-				<input id="51" type="text">
-			</div>
-			<div class="col dark">
-				<input id="52" type="text">
-			</div>
-			<div class="col dark">
-				<input id="53" type="text">
-			</div>
-			<div class="col light">
-				<input id="54" type="text">
-			</div>
-			<div class="col light">
-				<input id="55" type="text">
-			</div>
-			<div class="col light">
-				<input id="56" type="text">
-			</div>
-			<div class="col dark">
-				<input id="57" type="text">
-			</div>
-			<div class="col dark">
-				<input id="58" type="text">
-			</div>
-			<div class="col dark">
-				<input id="59" type="text">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col dark">
-				<input id="61" type="text">
-			</div>
-			<div class="col dark">
-				<input id="62" type="text">
-			</div>
-			<div class="col dark">
-				<input id="63" type="text">
-			</div>
-			<div class="col light">
-				<input id="64" type="text">
-			</div>
-			<div class="col light">
-				<input id="65" type="text">
-			</div>
-			<div class="col light">
-				<input id="66" type="text">
-			</div>
-			<div class="col dark">
-				<input id="67" type="text">
-			</div>
-			<div class="col dark">
-				<input id="68" type="text">
-			</div>
-			<div class="col dark">
-				<input id="69" type="text">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col light">
-				<input id="71" type="text">
-			</div>
-			<div class="col light">
-				<input id="72" type="text">
-			</div>
-			<div class="col light">
-				<input id="73" type="text">
-			</div>
-			<div class="col dark">
-				<input id="74" type="text">
-			</div>
-			<div class="col dark">
-				<input id="75" type="text">
-			</div>
-			<div class="col dark">
-				<input id="76" type="text">
-			</div>
-			<div class="col light">
-				<input id="77" type="text">
-			</div>
-			<div class="col light">
-				<input id="78" type="text">
-			</div>
-			<div class="col light">
-				<input id="79" type="text">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col light">
-				<input id="81" type="text">
-			</div>
-			<div class="col light">
-				<input id="82" type="text">
-			</div>
-			<div class="col light">
-				<input id="83" type="text">
-			</div>
-			<div class="col dark">
-				<input id="84" type="text">
-			</div>
-			<div class="col dark">
-				<input id="85" type="text">
-			</div>
-			<div class="col dark">
-				<input id="86" type="text">
-			</div>
-			<div class="col light">
-				<input id="87" type="text">
-			</div>
-			<div class="col light">
-				<input id="88" type="text">
-			</div>
-			<div class="col light">
-				<input id="89" type="text">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col light">
-				<input id="91" type="text">
-			</div>
-			<div class="col light">
-				<input id="92" type="text">
-			</div>
-			<div class="col light">
-				<input id="93" type="text">
-			</div>
-			<div class="col dark">
-				<input id="94" type="text">
-			</div>
-			<div class="col dark">
-				<input id="95" type="text">
-			</div>
-			<div class="col dark">
-				<input id="96" type="text">
-			</div>
-			<div class="col light">
-				<input id="97" type="text">
-			</div>
-			<div class="col light">
-				<input id="98" type="text">
-			</div>
-			<div class="col light">
-				<input id="99" type="text">
-			</div>
-		</div>
+		
+		<button id="solve-button" class="custom-button">Solve</button>
+		<button id="reset-button" class="custom-button">Reset</button>
+
 	</div>
-	<button id="solve-button" class="custom-button">Solve</button>
-	<button id="reset-button" class="custom-button">Reset</button>
 
 	<div id="invalid-sudoku-input-modal" class="modal fade" role="dialog">
 		<div class="modal-dialog">

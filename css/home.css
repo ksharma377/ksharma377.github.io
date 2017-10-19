@@ -5,12 +5,13 @@
 
 a {
 	text-decoration: none !important;
-	margin: 0px;
+	margin: 0;
 }
 
 body {
-	background-color: #bfc9ca !important
-;	padding-bottom: 40px;
+	margin: 0;
+	padding: 0;
+	background-color: #bfc9ca !important;
 }
 
 img {
