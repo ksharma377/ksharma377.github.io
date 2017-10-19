@@ -31,7 +31,6 @@ body {
 	line-height: 34px;
 	border-radius: 3px;
 	color: white;
-	font-size: 20px;
 }
 
 input {
@@ -39,10 +38,12 @@ input {
 	width: 34px;
 	line-height: 34px;
 	color: white;
-	margin: 0px;
+	margin: 0;
+	padding: 0 !important;
 	border: 1px none;
 	border-radius: 2px;
 	outline: none;
+	font-size: 20px !important;
 	font-family: "Open Sans", sans-serif, arial !important;
 }
 
@@ -51,20 +52,19 @@ input:hover {
 }
 
 .light input {
-	background-color: #f0b27a;
+	background-color: #e2a560;
 }
 
 .dark input {
-	background-color: #eb984e;
+	background-color: #c7752c;
 }
 
 .custom-button {
 	background-color: #eb9843;
 	color: white;
 	height: 40px;
-	width: 100px;
+	width: 120px;
 	border: 1px solid #ca6f1e;
-	border-radius: 5px;
 	outline: none;
 	transition: 0.5s;
 	margin-left: 10px;
@@ -77,8 +77,15 @@ input:hover {
 	transition: 0.5s;
 	background-color: #ca6f1e;
 	border: 1px solid #ca6f1e;
+	cursor: pointer;
 }
 
 .custom-button:active {
 	border: 1px solid #ca6f1e;
+}
+
+.custom-button:disabled {
+	background-color: #ca6f1e !important;
+	opacity: 0.4;
+	cursor: not-allowed;
 }

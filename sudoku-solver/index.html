@@ -281,6 +281,56 @@
 		</div>
 	</div>
 	<button id="solve-button" class="custom-button">Solve</button>
-	<button id="clear-button" class="custom-button">Clear</button>
+	<button id="reset-button" class="custom-button">Reset</button>
+
+	<div id="invalid-sudoku-input-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					Invalid Sudoku!
+				</div>
+				<div class="modal-body">
+					The sudoku you're trying to solve is not valid. Please check for repetitions and try again.
+				</div>
+				<div class="modal-footer">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="minimum-not-met-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					Invalid Sudoku!
+				</div>
+				<div class="modal-body">
+					You've entered less than 17 numbers. In this case, the solution is not unique.<br>
+					Please enter at least 17 numbers to proceed.
+				</div>
+				<div class="modal-footer">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="unsolvable-sudoku-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					Unsolvable Sudoku!
+				</div>
+				<div class="modal-body">
+					No solution exists for this Sudoku. Please try a different one!
+				</div>
+				<div class="modal-footer">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
