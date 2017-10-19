@@ -25,20 +25,19 @@ body {
 }
 
 .col {
-	width: 40px !important;
-	height: 40px !important;
+	width: 34px !important;
+	height: 34px !important;
 	display: inline-block;
-	line-height: 40px;
+	line-height: 34px;
 	border-radius: 3px;
 	color: white;
-	font-family: consolas !important;
-	font-size: 24px;
+	font-size: 20px;
 }
 
 input {
-	height: 40px;
-	width: 40px;
-	line-height: 40px;
+	height: 34px;
+	width: 34px;
+	line-height: 34px;
 	color: white;
 	margin: 0px;
 	border: 1px none;
