@@ -9,9 +9,8 @@ a {
 }
 
 body {
-	background-color: #bfc9ca !important;
-	min-height: 100%;
-	padding-bottom: 40px;
+	background-color: #bfc9ca !important
+;	padding-bottom: 40px;
 }
 
 img {
@@ -56,6 +55,10 @@ img {
 .cool-link:hover {
 	opacity: 0.5;
 	transition: 0.5s;
+}
+
+.coming-soon {
+	background-color: gray;
 }
 
 .block-anchor-tag {
