@@ -44,6 +44,7 @@ input {
 	border: 1px none;
 	border-radius: 2px;
 	outline: none;
+	font-family: "Open Sans", sans-serif, arial !important;
 }
 
 input:hover {
@@ -58,24 +59,27 @@ input:hover {
 	background-color: #eb984e;
 }
 
-#solve-button {
+.custom-button {
 	background-color: #eb9843;
 	color: white;
 	height: 40px;
 	width: 100px;
 	border: 1px solid #ca6f1e;
 	border-radius: 5px;
-	font-size: 16px;
 	outline: none;
 	transition: 0.5s;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-family: "Open Sans", sans-serif, arial !important;
+	font-size: 17px;
 }
 
-#solve-button:hover {
+.custom-button:hover {
 	transition: 0.5s;
 	background-color: #ca6f1e;
 	border: 1px solid #ca6f1e;
 }
 
-#solve-button:active {
+.custom-button:active {
 	border: 1px solid #ca6f1e;
 }
