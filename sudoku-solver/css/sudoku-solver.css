@@ -8,6 +8,14 @@ body {
 	background-color: #fad7a0 !important;
 }
 
+.custom-font {
+	font-family: "Open Sans", sans-serif, arial !important;
+}
+
+.bold-font {
+	font-weight: bold;
+}
+
 .top-bar {
 	background-image: url("../images/sudoku-solver-top-bar.jpg");
 	color: white;
@@ -39,6 +47,7 @@ body {
 	width: 34px !important;
 	height: 34px !important;
 	margin: 2px;
+	border-radius: 3px;
 	display: inline-block;
 	line-height: 34px;
 	color: white;
@@ -69,6 +78,16 @@ input:hover {
 
 .dark input {
 	background-color: #c7752c;
+}
+
+.light {
+	background-color: #e2a560;
+	color: white;
+}
+
+.dark {
+	background-color: #c7752c;
+	color: white;
 }
 
 .custom-button {
