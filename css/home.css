@@ -56,7 +56,7 @@ img {
 
 .top-bar {
 	width: 100%;
-	background-color: #85929e;
+	background-color: darkcyan;
 	padding: 15px;
 	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
 	font-size: 28px;
@@ -108,7 +108,7 @@ img {
 	width: 100%;
 	height: 40px;
 	line-height: 40px;
-	background-color: #283747;
+	background-color: darkcyan;
 	color: white;
 	z-index: -1;
 }
