@@ -24,7 +24,7 @@ function clearStoredValues() {
 
 function resetFontWeight() {
 	$("input[type='tel']").css("font-weight", "normal");
-	// $("input[type='tel']").css("font-size", "20px !important");
+	$("input[type='tel']").css("font-size", "20px");
 }
 
 function resetGrid() {
@@ -51,7 +51,7 @@ function makeFontBold() {
 	$("input[type='tel']").each(function() {
 		if (this.value != "") {
 			$(this).css("font-weight", "bold");
-			// $(this).css("font-size", "40px !important");
+			$(this).css("font-size", "24px");
 		}
 	});
 }
