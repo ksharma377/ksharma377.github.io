@@ -14,14 +14,22 @@ body {
 	background-color: #bfc9ca !important;
 }
 
-img {
-	max-width: 100% !important;
-	max-height: 100% !important;
+.top-bar {
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	width: 100%;
+	background-color: darkcyan;
+	padding: 15px;
+	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
+	font-size: 28px;
+	text-align: center;
 }
 
 #container {
 	display: inline-block;
 	margin: auto;
+	margin-top: 70px;
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
@@ -54,13 +62,9 @@ img {
 	}
 }
 
-.top-bar {
-	width: 100%;
-	background-color: darkcyan;
-	padding: 15px;
-	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
-	font-size: 28px;
-	text-align: center;
+img {
+	max-width: 100% !important;
+	max-height: 100% !important;
 }
 
 .cool-link {
