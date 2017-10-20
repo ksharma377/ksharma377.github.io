@@ -1,7 +1,7 @@
 var grid = [];
 
 $(document).ready(function() {
-	$("input[type='text']").attr("maxlength", "1");
+	$("input[type='tel']").attr("maxlength", "1");
 	$("#solve-button").click(function() {
 		solveSudoku();
 	});
@@ -13,7 +13,7 @@ $(document).ready(function() {
 });
 
 function clearContents() {
-	$("input[type='text']").val("");
+	$("input[type='tel']").val("");
 }
 
 function clearStoredValues() {
@@ -23,8 +23,8 @@ function clearStoredValues() {
 }
 
 function resetFontWeight() {
-	$("input[type='text']").css("font-weight", "normal");
-	// $("input[type='text']").css("font-size", "20px !important");
+	$("input[type='tel']").css("font-weight", "normal");
+	// $("input[type='tel']").css("font-size", "20px !important");
 }
 
 function resetGrid() {
@@ -35,7 +35,7 @@ function resetGrid() {
 }
 
 function readGrid() {
-	$("input[type='text']").each(function() {
+	$("input[type='tel']").each(function() {
 		var cellId = this.id;
 		var i = Math.floor(cellId / 10);
 		var j = cellId % 10;
@@ -48,7 +48,7 @@ function readGrid() {
 }
 
 function makeFontBold() {
-	$("input[type='text']").each(function() {
+	$("input[type='tel']").each(function() {
 		if (this.value != "") {
 			$(this).css("font-weight", "bold");
 			// $(this).css("font-size", "40px !important");
@@ -57,7 +57,7 @@ function makeFontBold() {
 }
 
 function renderGrid() {
-	$("input[type='text']").each(function() {
+	$("input[type='tel']").each(function() {
 		var cellId = this.id;
 		var i = Math.floor(cellId / 10);
 		var j = cellId % 10;
