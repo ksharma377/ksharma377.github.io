@@ -17,7 +17,7 @@ body {
 }
 
 .top-bar {
-	background-image: url("../images/sudoku-solver-top-bar.jpg");
+	background-color: #c7752c;
 	color: white;
 	padding: 15px;
 	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
