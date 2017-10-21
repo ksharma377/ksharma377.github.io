@@ -132,13 +132,13 @@ img {
 }
 
 #translator {
-	background-image: url("../images/translator-large.jpg");
+	background-image: url("../images/translator-thumbnail.jpg");
 }
 
 #sudoku-solver {
-	background-image: url("../images/sudoku-solver-large.jpg");
+	background-image: url("../images/sudoku-solver-thumbnail.jpg");
 }
 
 #flappy-bird {
-	background-image: url("../images/flappy-bird-large.jpg");
+	background-image: url("../images/flappy-bird-thumbnail.jpg");
 }
