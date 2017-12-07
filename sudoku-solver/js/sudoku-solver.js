@@ -79,17 +79,6 @@ function displaySolution() {
 	$("#solve-button").attr("disabled", "disabled");
 }
 
-function findEmptyCell() {
-	for (var i = 1; i <= 9; i++) {
-		for (var j = 1; j <= 9; j++) {
-			if (grid[i][j] == 0) {
-				return (10 * i + j);
-			}
-		}
-	}
-	return -1;
-}
-
 function usedInRow(num, row, col) {
 	for (var j = 1; j <= 9; j++) {
 		if (j != col && grid[row][j] == num) {
