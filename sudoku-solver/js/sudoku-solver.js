@@ -1,4 +1,5 @@
 var grid = [];
+var emptyCells = [];
 
 $(document).ready(function() {
 	$("input[type='tel']").attr("maxlength", "1");
@@ -17,6 +18,7 @@ function clearContents() {
 }
 
 function clearStoredValues() {
+	emptyCells = [];
 	for (var i = 1; i <= 9; i++) {
 		grid[i] = [];
 	}
@@ -35,12 +37,18 @@ function resetGrid() {
 }
 
 function readGrid() {
+	emptyCells = [];
 	$("input[type='tel']").each(function() {
 		var cellId = this.id;
 		var i = Math.floor(cellId / 10);
 		var j = cellId % 10;
 		if (this.value == "") {
 			grid[i][j] = 0;
+			var obj = {};
+			obj.row = i;
+			obj.col = j;
+			obj.possibilities = [];
+			emptyCells[emptyCells.length] = obj;
 		} else {
 			grid[i][j] = this.value;
 		}
@@ -125,17 +133,17 @@ function safeToPut(num, row, col) {
 	return true;
 }
 
-function solutionExists() {
-	var cellId = findEmptyCell();
-	if (cellId == -1) {
+function solutionExists(index) {
+	if (index < 0) {
 		return true;
 	}
-	var row = Math.floor(cellId / 10);
-	var col = cellId % 10;
-	for (var num = 1; num <= 9; num++) {
+	var row = emptyCells[index].row;
+	var col = emptyCells[index].col;
+	for (var i = 0, len = emptyCells[index].possibilities.length; i < len; i++) {
+		var num = emptyCells[index].possibilities[i];
 		if (safeToPut(num, row, col)) {
 			grid[row][col] = num;
-			if (solutionExists()) {
+			if (solutionExists(index - 1)) {
 				return true;
 			}
 			grid[row][col] = 0;
@@ -144,8 +152,30 @@ function solutionExists() {
 	return false;
 }
 
+function getPossibilities(row, col) {
+	var possibilities = [];
+	var count = 0;
+	for (var num = 1; num <= 9; num++) {
+		if (safeToPut(num, row, col)) {
+			possibilities[count] = num;
+			count++;
+		}
+	}
+	return possibilities;
+}
+
+function preprocess() {
+	for (var i = 0, len = emptyCells.length; i < len; i++) {
+		emptyCells[i].possibilities = getPossibilities(emptyCells[i].row, emptyCells[i].col);
+	}
+	emptyCells.sort(function(a, b) {
+		return (b.possibilities.length - a.possibilities.length);
+	});
+}
+
 function solve() {
-	if (solutionExists()) {
+	preprocess();
+	if (solutionExists(emptyCells.length - 1)) {
 		displaySolution();
 	} else {
 		$("#unsolvable-sudoku-modal").modal("show");
