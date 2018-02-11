@@ -1,0 +1,24 @@
+* {
+	text-align: center !important;
+}
+
+/*green: 5bc5a7, 318970*/
+/*red: ff652f, c83400*/
+
+.top-bar {
+	top: 0;
+	width: 100%;
+	background-color: #5bc5a7; /* green */
+	color: white;
+	padding: 15px;
+	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
+	font-size: 28px;
+	text-align: center;
+}
+
+#container {
+	max-width: 1000px;
+	display: inline-block;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
