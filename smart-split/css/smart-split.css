@@ -1,9 +1,60 @@
 * {
 	text-align: center !important;
+	font-family: "Open Sans", sans-serif, arial !important;
+	font-size: 16px !important;
 }
 
 /*green: 5bc5a7, 318970*/
 /*red: ff652f, c83400*/
+
+/* tags */
+
+input {
+	outline: none;
+	padding: 5px;
+}
+
+button {
+	outline: none;
+	border: 0;
+	padding: 5px;
+}
+
+td {
+	border: 0;
+	text-align: left !important;
+	padding: 0 !important;
+}
+
+/* classes */
+
+.red {
+	color: white;
+	background-color: #ff652f;
+	transition: 0.5s;
+}
+
+.red:hover {
+	color: white;
+	background-color: #c83400;
+	transition: 0.5s;
+}
+
+.green {
+	color: white;
+	background-color: #5bc5a7;
+	transition: 0.5s;
+}
+
+.green:hover {
+	color: white;
+	background-color: #318970;
+	transition: 0.5s;
+}
+
+.left-align {
+	text-align: left !important;
+}
 
 .top-bar {
 	top: 0;
@@ -11,14 +62,82 @@
 	background-color: #5bc5a7; /* green */
 	color: white;
 	padding: 15px;
-	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
-	font-size: 28px;
+	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif !important;
+	font-size: 28px !important;
 	text-align: center;
 }
 
+.full-width {
+	width: 100%;
+}
+
+.partial-width {
+	width: 30%;
+}
+
+.bottom-border {
+	border: 0;
+	border-bottom: 1px solid lightgray;
+	transition: 0.5s;
+}
+
+.bottom-border:focus {
+	border: 0;
+	border-bottom: 1px solid #5bc5a7;
+	transition: 0.5s;
+}
+
+.section {
+	padding: 20px !important;
+}
+
+.section-title {
+	margin-top: 50px;
+	color: #5bc5a7;
+	font-weight: bold;
+	font-size: 18px !important;
+	/*font-style: italic;*/
+}
+
+.participant {
+	display: inline !important;
+	background-color: #5bc5a7;
+	color: white;
+	text-align: center !important;
+	padding: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 5px;
+}
+
+/* ids */
+
 #container {
 	max-width: 1000px;
+	width: 100%;
 	display: inline-block;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding: 30px;
+}
+
+#event-description-input {
+	font-size: 22px !important;
+}
+
+#participants-information-div {
+}
+
+#participant-name-input {
+	width: 240px;
+	display: inline;
+	margin-right: 10px;
+}
+
+#add-participants-div {
+	margin-bottom: 20px;
+}
+
+#add-participant-button {
+	width: 160px;
+	line-height: 30px !important;
+	margin-top: 10px;
 }
