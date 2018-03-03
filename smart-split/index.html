@@ -9,6 +9,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/smart-split.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/smart-split.js"></script>
@@ -18,7 +19,7 @@
 		Smart Split
 	</div>
 
-	<div id="container">
+	<div id="container" data-ng-app="smart-split-app" data-ng-controller="smart-split-controller">
 
 		<div id="event-information-div">
 			<input class="full-width bottom-border left-align" id="event-description-input" type="text" placeholder="Event Description" value="" />
@@ -27,18 +28,12 @@
 		<div class="section-title full-width left-align">Participants</div>
 		<div class="section full-width left-align" id="participants-information-div">
 			<div class="left-align" id="add-participants-div">
-				<input class="bottom-border left-align" id="participant-name-input" type="text" placeholder="Participant Name" value="" />
-				<button class="red" id="add-participant-button">Add Participant</button>
+				<input class="bottom-border left-align" id="participant-name-input" data-ng-model="participantName" type="text" placeholder="Participant Name" value="" />
+				<button class="red" id="add-participant-button" data-ng-click="addParticipant()">Add Participant</button>
 			</div>
 			<div class="left-align" id="participants-list-div">
-				<div class="participant">
-					Frodo Baggins
-				</div>
-				<div class="participant">
-					Ryuzaki
-				</div>
-				<div class="participant">
-					Heisenberg
+				<div data-ng-repeat="participant in participants track by $index" class="participant">
+					{{ participant }}
 				</div>
 			</div>
 		</div>
