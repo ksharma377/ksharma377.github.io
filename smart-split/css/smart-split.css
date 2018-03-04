@@ -79,10 +79,6 @@ td {
 	width: 100%;
 }
 
-.partial-width {
-	width: 30%;
-}
-
 .bottom-border {
 	border: 0;
 	border-bottom: 1px solid lightgray;
@@ -148,4 +144,11 @@ td {
 	width: 160px;
 	line-height: 30px !important;
 	margin-top: 10px;
+}
+
+#delete-participant-button {
+	background-color: #5bc5a7;
+	color: #c83400;
+	margin-left: 5px;
+	margin-right: -5px;
 }

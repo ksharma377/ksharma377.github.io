@@ -19,8 +19,8 @@ app.controller("smart-split-controller", function($scope) {
 		$scope.participantName = "";
 	}
 	
-	$scope.deleteParticipant = function() {
-
+	$scope.deleteParticipant = function(index) {
+		$scope.participants.splice(index, 1);
 	}
 
 	$scope.items = [];

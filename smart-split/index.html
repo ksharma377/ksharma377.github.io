@@ -32,8 +32,9 @@
 				<button class="red" id="add-participant-button" data-ng-click="addParticipant()">Add Participant</button>
 			</div>
 			<div class="left-align" id="participants-list-div">
-				<div data-ng-repeat="participant in participants track by $index" class="participant">
+				<div data-ng-repeat="participant in participants" class="participant">
 					{{ participant }}
+					<button id="delete-participant-button" data-ng-click="deleteParticipant($index)">&#10005;</button>
 				</div>
 			</div>
 		</div>
