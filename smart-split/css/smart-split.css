@@ -93,6 +93,7 @@ td {
 
 .section {
 	padding: 20px !important;
+	padding-bottom: 0 !important;
 }
 
 .section-title {
