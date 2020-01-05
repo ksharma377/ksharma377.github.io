@@ -1,33 +1,59 @@
-canvas = document.getElementById("canvas");
-context = canvas.getContext("2d");
-var bird = new Image();
-var background = new Image();
-var ground = new Image();
-var upperPipe = new Image();
-var lowerPipe = new Image();
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");
 
-bird.src = "images/bird.png"
-background.src = "images/background.png";
-ground.src = "images/ground.png";
-upperPipe.src = "images/upperPipe.png";
-lowerPipe.src = "images/lowerPipe.png";
+let frames = 0;
+const imagePack = new Image();
+imagePack.src = "images/imagePack.png";
 
-function draw() {
-    background.onload = function() {
-        context.drawImage(background, 0, 0);
-    }
-    upperPipe.onload = function() {
-        context.drawImage(upperPipe, 300, -50);
-    }
-    lowerPipe.onload = function() {
-        context.drawImage(lowerPipe, 300, 300);
-    }
-    ground.onload = function() {
-        context.drawImage(ground, 0, 360);
-    }
-    bird.onload = function() {
-        context.drawImage(bird, 100, 200);
+const background = {
+    sourceX: 0,
+    sourceY: 0,
+    destinationX: 0,
+    destinationY: canvas.height - 226,
+    width: 275,
+    height: 226,
+
+    draw: function() {
+        context.drawImage(imagePack, this.sourceX, this.sourceY, this.width, this.height,
+            this.destinationX, this.destinationY, this.width, this.height);
+        context.drawImage(imagePack, this.sourceX, this.sourceY, this.width, this.height,
+            this.destinationX + this.width, this.destinationY, this.width, this.height);
+        context.drawImage(imagePack, this.sourceX, this.sourceY, this.width, this.height,
+            this.destinationX + 2 * this.width, this.destinationY, this.width, this.height);
     }
 }
 
-draw();
+const ground = {
+    sourceX: 276,
+    sourceY: 0,
+    destinationX: 0,
+    destinationY: canvas.height - 100,
+    width: 224,
+    height: 100,
+
+    draw: function() {
+        context.drawImage(imagePack, this.sourceX, this.sourceY, this.width, this.height,
+            this.destinationX, this.destinationY, this.width, this.height);
+        context.drawImage(imagePack, this.sourceX, this.sourceY, this.width, this.height,
+            this.destinationX + this.width, this.destinationY, this.width, this.height);
+        context.drawImage(imagePack, this.sourceX, this.sourceY, this.width, this.height,
+            this.destinationX + 2 * this.width, this.destinationY, this.width, this.height);
+        context.drawImage(imagePack, this.sourceX, this.sourceY, this.width, this.height,
+            this.destinationX + 3 * this.width, this.destinationY, this.width, this.height);
+    }
+}
+
+function draw() {
+    context.fillStyle = "#70c5ce";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    background.draw();
+    ground.draw();
+}
+
+function loop() {
+    draw();
+    frames++;
+    requestAnimationFrame(loop);
+}
+
+loop();
