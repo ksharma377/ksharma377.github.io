@@ -19,13 +19,15 @@ let state = {
 canvas.addEventListener("click", function(event) {
     switch (state.current) {
         case state.getReady:
-            state.current = state.getReady;
+            state.current = state.playing;
             break;
         
         case state.playing:
+            state.current = state.gameOver;
             break;
 
         case state.gameOver:
+            state.current = state.getReady;
             break;
     }
 });
@@ -79,7 +81,7 @@ const bird = {
         },
         {
             sourceX: 276,
-            sourceY: 138,
+            sourceY: 139,
         },
         {
             sourceX: 276,
@@ -87,19 +89,36 @@ const bird = {
         },
         {
             sourceX: 276,
-            sourceY: 138,
+            sourceY: 139,
         }
     ],
     width: 34,
     height: 26,
     destinationX: 100,
     destinationY: 150,
+    frame: 0,
+    period: 5,
 
     draw: function() {
-        let birdInstance = this.birdType[frames % 4];
+        let birdInstance = this.birdType[this.frame];
         context.drawImage(imagePack, birdInstance.sourceX, birdInstance.sourceY, this.width, this.height,
             this.destinationX, this.destinationY, this.width, this.height);
+    },
+
+    flap: function() {
+
+    },
+
+    animate: function() {
+        this.period = (state.current == state.getReady) ? 10 : 5;
+        this.frame += (frames % this.period == 0) ? 1 : 0;
+        this.frame = this.frame % 4;
     }
+}
+
+// PIPES
+const pipes = {
+    
 }
 
 // GET READY MESSAGE
@@ -136,6 +155,11 @@ const gameOver = {
     }
 }
 
+// ANIMATE THE OBJECTS
+function animate() {
+    bird.animate();
+}
+
 // PAINT ONE FRAME AT A TIME
 function draw() {
     context.fillStyle = "#70c5ce";
@@ -144,11 +168,13 @@ function draw() {
     ground.draw();
     bird.draw();
     getReady.draw();
+    gameOver.draw();
 }
 
 function loop() {
-    draw();
     frames++;
+    animate();
+    draw();
     requestAnimationFrame(loop);
 }
 
