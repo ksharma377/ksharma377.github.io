@@ -59,6 +59,7 @@ const ground = {
     height: 100,
     destinationX: 0,
     destinationY: canvas.height - 100,
+    dx: 2,
 
     draw: function() {
         context.drawImage(imagePack, this.sourceX, this.sourceY, this.width, this.height,
@@ -69,6 +70,19 @@ const ground = {
             this.destinationX + 2 * this.width, this.destinationY, this.width, this.height);
         context.drawImage(imagePack, this.sourceX, this.sourceY, this.width, this.height,
             this.destinationX + 3 * this.width, this.destinationY, this.width, this.height);
+    },
+
+    update: function() {
+
+        if (state.current == state.playing) {
+            // KEEP MOVING THE GROUND TO THE LEFT UNTIL SOME POINT
+            this.destinationX -= this.dx;
+
+            // RESET AFTER THE THRESHOLD, HERE 1/4 OF ITS WIDTH
+            if (this.destinationX <= -this.width / 4) {
+                this.destinationX = 0;
+            }
+        }
     }
 }
 
@@ -192,6 +206,7 @@ const gameOver = {
 // UPDATE THE OBJECTS
 function update() {
     bird.update();
+    ground.update();
 }
 
 // PAINT ONE FRAME AT A TIME
