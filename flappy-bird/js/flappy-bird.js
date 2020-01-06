@@ -23,7 +23,7 @@ canvas.addEventListener("click", function(event) {
             break;
         
         case state.playing:
-            state.current = state.gameOver;
+            bird.flap();
             break;
 
         case state.gameOver:
@@ -98,21 +98,55 @@ const bird = {
     destinationY: 150,
     frame: 0,
     period: 5,
+    speed: 0,
+    gravity: 0.25,
+    jump: 4,
 
     draw: function() {
         let birdInstance = this.birdType[this.frame];
         context.drawImage(imagePack, birdInstance.sourceX, birdInstance.sourceY, this.width, this.height,
-            this.destinationX, this.destinationY, this.width, this.height);
+            this.destinationX - this.width / 2, this.destinationY - this.height / 2, this.width, this.height);
     },
 
     flap: function() {
-
+        this.speed = -this.jump;
     },
 
-    animate: function() {
+    update: function() {
+
+        // BIRD FLAPS FASTER WHEN IN PLAYING STATE
         this.period = (state.current == state.getReady) ? 10 : 5;
+
+        // UPDATE THE BIRD INSTANCE EVERY "PERIOD" FRAMES
         this.frame += (frames % this.period == 0) ? 1 : 0;
         this.frame = this.frame % 4;
+
+        if (state.current == state.getReady) {
+
+            // RESET THE VERTICAL POSITION OF THE BIRD
+            this.destinationY = 150;
+
+        } else {
+
+            this.speed += this.gravity;
+            this.destinationY += this.speed;
+            
+            // CHECK IF THE BIRD HAS HIT THE GROUND
+            if (this.destinationY + this.height / 2 >= canvas.height - ground.height) {
+
+                // SET GAME STATE TO GAME OVER
+                state.current = state.gameOver;
+
+                // FIX THE BIRD ON THE GROUND
+                this.destinationY = canvas.height - ground.height - this.height / 2 + 1;
+                
+                // STOP VERTICAL MOTION
+                this.speed = 0;
+
+                // STOP ANIMATION
+                this.frame = 1;
+            }
+        }
     }
 }
 
@@ -155,9 +189,9 @@ const gameOver = {
     }
 }
 
-// ANIMATE THE OBJECTS
-function animate() {
-    bird.animate();
+// UPDATE THE OBJECTS
+function update() {
+    bird.update();
 }
 
 // PAINT ONE FRAME AT A TIME
@@ -173,7 +207,7 @@ function draw() {
 
 function loop() {
     frames++;
-    animate();
+    update();
     draw();
     requestAnimationFrame(loop);
 }
