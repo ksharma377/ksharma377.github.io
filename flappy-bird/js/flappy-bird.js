@@ -22,6 +22,31 @@ const state = {
     gameOver: 3
 }
 
+// Score
+const score = {
+    best: 0,
+    value: 0,
+
+    draw: function() {
+
+        context.fillStyle = "#ffffff";
+        context.strokeStyle = "#000000";
+
+        if (state.current == state.playing) {
+            context.lineWidth = 2;
+            context.font = "35px Teko";
+            context.fillText(this.value, canvas.width / 2 - 16, 50);
+            context.strokeText(this.value, canvas.width / 2 - 16, 50);
+        } else {
+
+        }
+    },
+
+    reset: function() {
+        this.value = 0;
+    }
+}
+
 // Add listener to the canvas
 canvas.addEventListener("click", function(event) {
 
@@ -41,6 +66,7 @@ canvas.addEventListener("click", function(event) {
         case state.gameOver:
             bird.reset();
             pipes.reset();
+            score.reset();
             state.current = state.getReady;
             break;
     }
@@ -251,7 +277,8 @@ const pipes = {
         if (frames % this.separation == 0) {
             this.positions.push({
                 destinationX: canvas.width,
-                destinationY: this.minYPosition + Math.random() * (this.maxYPosition - this.minYPosition + 1)
+                destinationY: this.minYPosition + Math.random() * (this.maxYPosition - this.minYPosition + 1),
+                updateScore: true
             });
         }
 
@@ -283,6 +310,13 @@ const pipes = {
             // If the pipe goes past the bird, increment the score
             if (pipe.destinationX + this.width < bird.destinationX - bird.width / 2) {
                 scoreSound.play();
+
+                // Update the score only if this pipe has not been used before
+                if (pipe.updateScore) {
+                    score.value++;
+                    score.best = Math.max(score.best, score.value);
+                    pipe.updateScore = false;
+                }
             }
 
             // If the pipe goes beyond the canvas, delete it
@@ -350,6 +384,7 @@ function draw() {
     bird.draw();
     getReady.draw();
     gameOver.draw();
+    score.draw();
 }
 
 // Keep refreshing every frame
