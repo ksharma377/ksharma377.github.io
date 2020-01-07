@@ -75,10 +75,11 @@ const ground = {
     update: function() {
 
         if (state.current == state.playing) {
-            // KEEP MOVING THE GROUND TO THE LEFT UNTIL SOME POINT
+
+            // KEEP MOVING THE GROUND TO THE LEFT UNTIL...
             this.destinationX -= this.dx;
 
-            // RESET AFTER THE THRESHOLD, HERE 1/4 OF ITS WIDTH
+            // THE THRESHOLD IS REACHED, HERE 1/4 OF ITS WIDTH
             if (this.destinationX <= -this.width / 4) {
                 this.destinationX = 0;
             }
@@ -123,6 +124,8 @@ const bird = {
     },
 
     flap: function() {
+
+        // SET THE SPEED TO AN UPWARD VALUE
         this.speed = -this.jump;
     },
 
@@ -221,9 +224,9 @@ function draw() {
 }
 
 function loop() {
-    frames++;
     update();
     draw();
+    frames++;
     requestAnimationFrame(loop);
 }
 
