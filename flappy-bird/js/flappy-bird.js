@@ -3,11 +3,11 @@ const context = canvas.getContext("2d");
 
 let frames = 0;
 
-// LOAD THE IMAGE PACK
+// Load the image pack
 const imagePack = new Image();
 imagePack.src = "images/imagePack.png";
 
-// GAME STATE
+// Game state
 let state = {
     current: 1,
     getReady: 1,
@@ -15,7 +15,7 @@ let state = {
     gameOver: 3
 }
 
-// ADD LISTENER TO THE CANVAS
+// Add listener to the canvas
 canvas.addEventListener("click", function(event) {
     switch (state.current) {
         case state.getReady:
@@ -32,7 +32,7 @@ canvas.addEventListener("click", function(event) {
     }
 });
 
-// BACKGROUND
+// Background object
 const background = {
     sourceX: 0,
     sourceY: 0,
@@ -51,7 +51,7 @@ const background = {
     }
 }
 
-// GROUND
+// Ground object
 const ground = {
     sourceX: 276,
     sourceY: 0,
@@ -76,10 +76,10 @@ const ground = {
 
         if (state.current == state.playing) {
 
-            // KEEP MOVING THE GROUND TO THE LEFT UNTIL...
+            // Keep moving the ground left until...
             this.destinationX -= this.dx;
 
-            // THE THRESHOLD IS REACHED, HERE 1/4 OF ITS WIDTH
+            // The threshold is reached, here 1/4th of its width
             if (this.destinationX <= -this.width / 4) {
                 this.destinationX = 0;
             }
@@ -87,8 +87,10 @@ const ground = {
     }
 }
 
-// BIRD
+// Bird object
 const bird = {
+
+    // Different images for the animation
     birdType: [
         {
             sourceX: 276,
@@ -125,54 +127,66 @@ const bird = {
 
     flap: function() {
 
-        // SET THE SPEED TO AN UPWARD VALUE
+        // Set the speed to an upward value
         this.speed = -this.jump;
     },
 
     update: function() {
 
-        // BIRD FLAPS FASTER WHEN IN PLAYING STATE
+        // Bird flaps faster when in playing state
         this.period = (state.current == state.getReady) ? 10 : 5;
 
-        // UPDATE THE BIRD INSTANCE EVERY "PERIOD" FRAMES
+        // Update the bird instance every "period" frames
         this.frame += (frames % this.period == 0) ? 1 : 0;
-        this.frame = this.frame % 4;
+        this.frame = this.frame % this.birdType.length;
 
         if (state.current == state.getReady) {
 
-            // RESET THE VERTICAL POSITION OF THE BIRD
+            // Reset the vertical position of the bird
             this.destinationY = 150;
 
         } else {
 
+            // Increase the downward speed due to gravity
             this.speed += this.gravity;
             this.destinationY += this.speed;
             
-            // CHECK IF THE BIRD HAS HIT THE GROUND
+            // Check if the bird has hit the ground
             if (this.destinationY + this.height / 2 >= canvas.height - ground.height) {
 
-                // SET GAME STATE TO GAME OVER
+                // Set the game state to "game over"
                 state.current = state.gameOver;
 
-                // FIX THE BIRD ON THE GROUND
+                // Fix the bird to the ground
                 this.destinationY = canvas.height - ground.height - this.height / 2 + 1;
                 
-                // STOP VERTICAL MOTION
+                // Freeze the bird's vertical motion
                 this.speed = 0;
 
-                // STOP ANIMATION
+                // Stop the bird's animation
                 this.frame = 1;
             }
         }
     }
 }
 
-// PIPES
+// Pipes object
 const pipes = {
-    
+    // top: {
+    //     sourceX:
+    //     sourceY:
+    // },
+    // bottom: {
+    //     sourceX:
+    //     sourceY:
+    // },
+    // width:
+    // height:
+    // destinationX: canvas.width,
+
 }
 
-// GET READY MESSAGE
+// Get ready message
 const getReady = {
     sourceX: 0,
     sourceY: 228,
@@ -189,7 +203,7 @@ const getReady = {
     }
 }
 
-// GAME OVER MESSAGE
+// Game over message
 const gameOver = {
     sourceX: 174,
     sourceY: 228,
@@ -206,13 +220,13 @@ const gameOver = {
     }
 }
 
-// UPDATE THE OBJECTS
+// Update the objects
 function update() {
     bird.update();
     ground.update();
 }
 
-// PAINT ONE FRAME AT A TIME
+// Draw the objects
 function draw() {
     context.fillStyle = "#70c5ce";
     context.fillRect(0, 0, canvas.width, canvas.height);
@@ -223,6 +237,7 @@ function draw() {
     gameOver.draw();
 }
 
+// Keep refreshing every frame
 function loop() {
     update();
     draw();
