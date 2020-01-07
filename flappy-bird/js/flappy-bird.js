@@ -15,7 +15,7 @@ const hitSound = new Audio("sounds/sfx_hit.mp3");
 const swooshSound = new Audio("sounds/sfx_swoosh.mp3");
 
 // Game state
-let state = {
+const state = {
     current: 1,
     getReady: 1,
     playing: 2,
@@ -136,7 +136,7 @@ const bird = {
     jump: 4,
 
     draw: function() {
-        let birdInstance = this.birdType[this.frame];
+        const birdInstance = this.birdType[this.frame];
 
         // Center the bird while drawing. This would be useful for its rotation.
         context.drawImage(imagePack, birdInstance.sourceX, birdInstance.sourceY, this.width, this.height,
@@ -226,9 +226,9 @@ const pipes = {
     
     draw: function() {
         for (let i = 0; i < this.positions.length; i++) {
-            let pipe = this.positions[i];
-            let topYPosition = pipe.destinationY;
-            let bottomYPosition = topYPosition + this.height + this.gap;
+            const pipe = this.positions[i];
+            const topYPosition = pipe.destinationY;
+            const bottomYPosition = topYPosition + this.height + this.gap;
 
             // Top pipe
             context.drawImage(imagePack, this.top.sourceX, this.top.sourceY, this.width, this.height,
@@ -257,7 +257,7 @@ const pipes = {
 
         // Move the pipes to the left
         for (let i = 0; i < this.positions.length; i++) {
-            let pipe = this.positions[i];
+            const pipe = this.positions[i];
             pipe.destinationX -= this.dx;
 
             // Collision detection with top pipe
