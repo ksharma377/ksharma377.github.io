@@ -230,6 +230,12 @@ const pipes = {
         for (let i = 0; i < this.positions.length; i++) {
             let pipe = this.positions[i];
             pipe.destinationX -= this.dx;
+
+            // If the pipe goes beyond the canvas, delete it
+            if (pipe.destinationX + this.width <= 0) {
+                this.positions.shift();
+                i--;
+            }
         }
     }
 }
