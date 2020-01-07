@@ -8,20 +8,11 @@ const imagePack = new Image();
 imagePack.src = "images/imagePack.png";
 
 // Load the sound effects
-const scoreSound = new Audio();
-scoreSound.src = "sounds/sfx_score.mp3";
-
-const dieSound = new Audio();
-dieSound.src = "sounds/sfx_die.mp3";
-
-const flapSound = new Audio();
-flapSound.src = "sounds/sfx_flap.mp3";
-
-const hitSound = new Audio();
-hitSound.src = "sounds/sfx_hit.mp3";
-
-const swooshSound = new Audio();
-swooshSound.src = "sounds/sfx_swoosh.mp3";
+const scoreSound = new Audio("sounds/sfx_score.mp3");
+const dieSound = new Audio("sounds/sfx_die.mp3");
+const flapSound = new Audio("sounds/sfx_flap.mp3");
+const hitSound = new Audio("sounds/sfx_hit.mp3");
+const swooshSound = new Audio("sounds/sfx_swoosh.mp3");
 
 // Game state
 let state = {
@@ -37,17 +28,19 @@ canvas.addEventListener("click", function(event) {
     switch (state.current) {
 
         case state.getReady:
-            state.current = state.playing;
             swooshSound.play();
-            bird.reset();
+            state.current = state.playing;
             break;
         
         case state.playing:
-            bird.flap();
+            flapSound.currentTime = 0;  // To play at every click irrespective of previous sound finish
             flapSound.play();
+            bird.flap();
             break;
 
         case state.gameOver:
+            bird.reset();
+            pipes.reset();
             state.current = state.getReady;
             break;
     }
@@ -191,6 +184,9 @@ const bird = {
                     // Play die sound effect
                     dieSound.play();
 
+                    // Freeze the bird's vertical motion
+                    this.speed = 0;
+
                     // Stop the bird's animation
                     this.frame = 1;
                     
@@ -222,6 +218,7 @@ const pipes = {
         sourceX: 500,
         sourceY: 0
     },
+
     width: 53,
     height: 400,
     minYPosition: -340,
@@ -248,14 +245,8 @@ const pipes = {
 
     update: function() {
 
-        // Reset the positions when a game begins
-        if (state.current == state.getReady) {
-            this.positions.length = 0;
-            return;
-        }
-
-        // Do nothing if it's game over state
-        if (state.current == state.gameOver) {
+        // Do nothing if it's not playing state
+        if (state.current !== state.playing) {
             return;
         }
 
@@ -303,6 +294,11 @@ const pipes = {
                 i--;
             }
         }
+    },
+
+    reset: function() {
+        // Reset the positions when a game begins
+        this.positions.length = 0;
     }
 }
 
