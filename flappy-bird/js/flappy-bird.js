@@ -184,9 +184,6 @@ const bird = {
                     // Play die sound effect
                     dieSound.play();
 
-                    // Freeze the bird's vertical motion
-                    this.speed = 0;
-
                     // Stop the bird's animation
                     this.frame = 1;
                     
@@ -223,7 +220,7 @@ const pipes = {
     height: 400,
     minYPosition: -340,
     maxYPosition: -190,
-    gap: 80,
+    gap: 90,
     separation: 100,
     dx: 2,
     
