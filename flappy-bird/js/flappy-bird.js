@@ -109,6 +109,7 @@ const bird = {
             sourceY: 139,
         }
     ],
+
     width: 34,
     height: 26,
     destinationX: 100,
@@ -121,6 +122,8 @@ const bird = {
 
     draw: function() {
         let birdInstance = this.birdType[this.frame];
+
+        // Center the bird while drawing. This would be useful for its rotation.
         context.drawImage(imagePack, birdInstance.sourceX, birdInstance.sourceY, this.width, this.height,
             this.destinationX - this.width / 2, this.destinationY - this.height / 2, this.width, this.height);
     },
@@ -172,18 +175,63 @@ const bird = {
 
 // Pipes object
 const pipes = {
-    // top: {
-    //     sourceX:
-    //     sourceY:
-    // },
-    // bottom: {
-    //     sourceX:
-    //     sourceY:
-    // },
-    // width:
-    // height:
-    // destinationX: canvas.width,
 
+    // Positions of all the pipes, initially empty
+    positions: [],
+
+    top: {
+        sourceX: 553,
+        sourceY: 0
+    },
+    bottom: {
+        sourceX: 502,
+        sourceY: 0
+    },
+    width: 53,
+    height: 400,
+    minYPosition: -340,
+    maxYPosition: -190,
+    gap: 80,
+    separation: 100,
+    dx: 2,
+    
+    draw: function() {
+        for (let i = 0; i < this.positions.length; i++) {
+            let pipe = this.positions[i];
+            let topYPosition = pipe.destinationY;
+            let bottomYPosition = topYPosition + this.height + this.gap;
+
+            // Top pipe
+            context.drawImage(imagePack, this.top.sourceX, this.top.sourceY, this.width, this.height,
+                pipe.destinationX, topYPosition, this.width, this.height);
+            
+            // Bottom pipe
+            context.drawImage(imagePack, this.bottom.sourceX, this.bottom.sourceY, this.width, this.height,
+                pipe.destinationX, bottomYPosition, this.width, this.height);
+        }
+    },
+
+    update: function() {
+
+        // Do nothing if the game is not in playing state
+        if (state.current != state.playing) {
+            return;
+        }
+
+        // Time to add a new pipe
+        if (frames % this.separation == 0) {
+            this.positions.push({
+                destinationX: canvas.width,
+                destinationY: this.minYPosition + Math.random() * (this.maxYPosition - this.minYPosition + 1)
+            });
+        }
+
+        // Move the pipes to the left
+        for (let i = 0; i < this.positions.length; i++) {
+            let pipe = this.positions[i];
+            pipe.destinationX -= this.dx;
+        }
+    }
 }
 
 // Get ready message
@@ -224,6 +272,7 @@ const gameOver = {
 function update() {
     bird.update();
     ground.update();
+    pipes.update();
 }
 
 // Draw the objects
@@ -231,6 +280,7 @@ function draw() {
     context.fillStyle = "#70c5ce";
     context.fillRect(0, 0, canvas.width, canvas.height);
     background.draw();
+    pipes.draw();
     ground.draw();
     bird.draw();
     getReady.draw();
