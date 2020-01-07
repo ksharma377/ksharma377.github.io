@@ -7,6 +7,22 @@ let frames = 0;
 const imagePack = new Image();
 imagePack.src = "images/imagePack.png";
 
+// Load the sound effects
+const scoreSound = new Audio();
+scoreSound.src = "sounds/sfx_score.mp3";
+
+const dieSound = new Audio();
+dieSound.src = "sounds/sfx_die.mp3";
+
+const flapSound = new Audio();
+flapSound.src = "sounds/sfx_flap.mp3";
+
+const hitSound = new Audio();
+hitSound.src = "sounds/sfx_hit.mp3";
+
+const swooshSound = new Audio();
+swooshSound.src = "sounds/sfx_swoosh.mp3";
+
 // Game state
 let state = {
     current: 1,
@@ -17,13 +33,18 @@ let state = {
 
 // Add listener to the canvas
 canvas.addEventListener("click", function(event) {
+
     switch (state.current) {
+
         case state.getReady:
             state.current = state.playing;
+            swooshSound.play();
+            bird.reset();
             break;
         
         case state.playing:
             bird.flap();
+            flapSound.play();
             break;
 
         case state.gameOver:
@@ -112,6 +133,7 @@ const bird = {
 
     width: 34,
     height: 26,
+    radius: 13,
     destinationX: 100,
     destinationY: 150,
     frame: 0,
@@ -136,12 +158,16 @@ const bird = {
 
     update: function() {
 
-        // Bird flaps faster when in playing state
-        this.period = (state.current == state.getReady) ? 10 : 5;
+        // Only animate the bird if it's not game over state
+        if (state.current !== state.gameOver) {
 
-        // Update the bird instance every "period" frames
-        this.frame += (frames % this.period == 0) ? 1 : 0;
-        this.frame = this.frame % this.birdType.length;
+            // Bird flaps faster when in playing state than in get ready state
+            this.period = (state.current == state.getReady) ? 10 : 5;
+
+            // Update the bird instance every "period" frames
+            this.frame += (frames % this.period == 0) ? 1 : 0;
+            this.frame = this.frame % this.birdType.length;
+        }
 
         if (state.current == state.getReady) {
 
@@ -156,20 +182,29 @@ const bird = {
             
             // Check if the bird has hit the ground
             if (this.destinationY + this.height / 2 >= canvas.height - ground.height) {
-
-                // Set the game state to "game over"
-                state.current = state.gameOver;
-
+                
                 // Fix the bird to the ground
                 this.destinationY = canvas.height - ground.height - this.height / 2 + 1;
                 
-                // Freeze the bird's vertical motion
-                this.speed = 0;
+                if (state.current == state.playing) {
+                
+                    // Play die sound effect
+                    dieSound.play();
 
-                // Stop the bird's animation
-                this.frame = 1;
+                    // Stop the bird's animation
+                    this.frame = 1;
+                    
+                    // Set the game state to "game over"
+                    state.current = state.gameOver;
+                }
             }
         }
+    },
+
+    reset: function() {
+
+        // Freeze the bird's vertical motion
+        this.speed = 0;
     }
 }
 
@@ -184,7 +219,7 @@ const pipes = {
         sourceY: 0
     },
     bottom: {
-        sourceX: 502,
+        sourceX: 500,
         sourceY: 0
     },
     width: 53,
@@ -236,6 +271,31 @@ const pipes = {
         for (let i = 0; i < this.positions.length; i++) {
             let pipe = this.positions[i];
             pipe.destinationX -= this.dx;
+
+            // Collision detection with top pipe
+            if (bird.destinationX + bird.radius > pipe.destinationX &&
+                bird.destinationX - bird.radius < pipe.destinationX + this.width &&
+                bird.destinationY + bird.radius > pipe.destinationY &&
+                bird.destinationY - bird.radius < pipe.destinationY + this.height) {
+
+                hitSound.play();
+                state.current = state.gameOver;
+            }
+
+            // Collision detection with bottom pipe
+            if (bird.destinationX + bird.radius > pipe.destinationX &&
+                bird.destinationX - bird.radius < pipe.destinationX + this.width &&
+                bird.destinationY + bird.radius > pipe.destinationY + this.height + this.gap &&
+                bird.destinationY - bird.radius < pipe.destinationY + 2 * this.height + this.gap) {
+
+                hitSound.play();
+                state.current = state.gameOver;
+            }
+
+            // If the pipe goes past the bird, increment the score
+            if (pipe.destinationX + this.width < bird.destinationX - bird.width / 2) {
+                scoreSound.play();
+            }
 
             // If the pipe goes beyond the canvas, delete it
             if (pipe.destinationX + this.width <= 0) {
