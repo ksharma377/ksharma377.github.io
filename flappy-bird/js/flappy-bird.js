@@ -213,8 +213,14 @@ const pipes = {
 
     update: function() {
 
-        // Do nothing if the game is not in playing state
-        if (state.current != state.playing) {
+        // Reset the positions when a game begins
+        if (state.current == state.getReady) {
+            this.positions.length = 0;
+            return;
+        }
+
+        // Do nothing if it's game over state
+        if (state.current == state.gameOver) {
             return;
         }
 
