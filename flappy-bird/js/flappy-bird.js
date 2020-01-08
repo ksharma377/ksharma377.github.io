@@ -138,6 +138,7 @@ const bird = {
     jump: 4,
 
     draw: function() {
+
         const birdInstance = this.birdType[this.frame];
 
         // Center the bird while drawing. This would be useful for its rotation.
@@ -153,7 +154,7 @@ const bird = {
 
     update: function() {
 
-        // Only animate the bird if it's not game over state
+        // The bird flaps only if it's not game over state
         if (state.current !== state.gameOver) {
 
             // Bird flaps faster when in playing state than in get ready state
@@ -228,7 +229,9 @@ const pipes = {
     dx: 2,
     
     draw: function() {
+
         for (let i = 0; i < this.positions.length; i++) {
+
             const pipe = this.positions[i];
             const topYPosition = pipe.destinationY;
             const bottomYPosition = topYPosition + this.height + this.gap;
@@ -261,6 +264,7 @@ const pipes = {
 
         // Move the pipes to the left
         for (let i = 0; i < this.positions.length; i++) {
+
             const pipe = this.positions[i];
             pipe.destinationX -= this.dx;
 
@@ -309,6 +313,7 @@ const pipes = {
     },
 
     reset: function() {
+
         // Reset the positions when a game begins
         this.positions.length = 0;
     }
@@ -339,6 +344,8 @@ const score = {
     },
 
     reset: function() {
+
+        // Reset the score when a game begins
         this.value = 0;
     }
 }
