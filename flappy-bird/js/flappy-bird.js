@@ -53,12 +53,13 @@ canvas.addEventListener("click", function(event) {
     switch (state.current) {
 
         case state.getReady:
+            swooshSound.currentTime = 0;  // To play instantly, irrespective of previous sound finish
             swooshSound.play();
             state.current = state.playing;
             break;
         
         case state.playing:
-            flapSound.currentTime = 0;  // To play at every click irrespective of previous sound finish
+            flapSound.currentTime = 0;  // To play instantly, irrespective of previous sound finish
             flapSound.play();
             bird.flap();
             break;
@@ -208,6 +209,7 @@ const bird = {
                 if (state.current == state.playing) {
                 
                     // Play die sound effect
+                    dieSound.currentTime = 0;  // To play instantly, irrespective of previous sound finish
                     dieSound.play();
 
                     // Stop the bird's animation
@@ -293,6 +295,7 @@ const pipes = {
                 bird.destinationY + bird.radius > pipe.destinationY &&
                 bird.destinationY - bird.radius < pipe.destinationY + this.height) {
 
+                hitSound.currentTime = 0;  // To play instantly, irrespective of previous sound finish
                 hitSound.play();
                 state.current = state.gameOver;
             }
@@ -303,17 +306,20 @@ const pipes = {
                 bird.destinationY + bird.radius > pipe.destinationY + this.height + this.gap &&
                 bird.destinationY - bird.radius < pipe.destinationY + 2 * this.height + this.gap) {
 
+                hitSound.currentTime = 0;  // To play instantly, irrespective of previous sound finish
                 hitSound.play();
                 state.current = state.gameOver;
             }
 
             // If the pipe goes past the bird, increment the score
             if (pipe.destinationX + this.width < bird.destinationX - bird.width / 2) {
-                scoreSound.play();
 
                 // Update the score only if this pipe has not been used before
                 if (pipe.updateScore) {
+
                     score.value++;
+                    scoreSound.currentTime = 0;  // To play instantly, irrespective of previous sound finish
+                    scoreSound.play();
                     score.best = Math.max(score.best, score.value);
                     pipe.updateScore = false;
                 }
