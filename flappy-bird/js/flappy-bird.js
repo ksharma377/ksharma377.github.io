@@ -22,31 +22,6 @@ const state = {
     gameOver: 3
 }
 
-// Score
-const score = {
-    best: 0,
-    value: 0,
-
-    draw: function() {
-
-        context.fillStyle = "#ffffff";
-        context.strokeStyle = "#000000";
-
-        if (state.current == state.playing) {
-            context.lineWidth = 2;
-            context.font = "35px Teko";
-            context.fillText(this.value, canvas.width / 2 - 16, 50);
-            context.strokeText(this.value, canvas.width / 2 - 16, 50);
-        } else {
-
-        }
-    },
-
-    reset: function() {
-        this.value = 0;
-    }
-}
-
 // Add listener to the canvas
 canvas.addEventListener("click", function(event) {
 
@@ -336,6 +311,35 @@ const pipes = {
     reset: function() {
         // Reset the positions when a game begins
         this.positions.length = 0;
+    }
+}
+
+// Score
+const score = {
+    best: 0,
+    value: 0,
+
+    draw: function() {
+
+        context.fillStyle = "#ffffff";
+        context.strokeStyle = "#000000";
+
+        if (state.current == state.playing) {
+            context.lineWidth = 2;
+            context.font = "35px Teko";
+            context.fillText(this.value, canvas.width / 2 - 16, 50);
+            context.strokeText(this.value, canvas.width / 2 - 16, 50);
+        } else if (state.current == state.gameOver) {
+            context.font = "25px Teko";
+            context.fillText(this.value, gameOver.destinationX + gameOver.width - 50, gameOver.destinationY + 95);
+            context.strokeText(this.value, gameOver.destinationX + gameOver.width - 50, gameOver.destinationY + 95);
+            context.fillText(this.best, gameOver.destinationX + gameOver.width - 50, gameOver.destinationY + gameOver.height - 65);
+            context.strokeText(this.best, gameOver.destinationX + gameOver.width - 50, gameOver.destinationY + gameOver.height - 65);
+        }
+    },
+
+    reset: function() {
+        this.value = 0;
     }
 }
 
