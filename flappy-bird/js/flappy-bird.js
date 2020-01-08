@@ -276,6 +276,11 @@ const pipes = {
 
                 hitSound.currentTime = 0;  // To play instantly, irrespective of previous sound finish
                 hitSound.play();
+
+                // Stop the bird's animation
+                bird.frame = 1;
+
+                // Set the game state to "game over"
                 state.current = state.gameOver;
             }
 
@@ -287,6 +292,11 @@ const pipes = {
 
                 hitSound.currentTime = 0;  // To play instantly, irrespective of previous sound finish
                 hitSound.play();
+
+                // Stop the bird's animation
+                bird.frame = 1;
+
+                // Set the game state to "game over"
                 state.current = state.gameOver;
             }
 
