@@ -22,21 +22,31 @@ const state = {
     gameOver: 3
 }
 
-// Add listener to the canvas
+// Start the game
+function startGame() {
+    swooshSound.currentTime = 0;  // To play instantly, irrespective of previous sound finish
+    swooshSound.play();
+    state.current = state.playing;
+}
+
+// Flap the bird
+function flapBird() {
+    flapSound.currentTime = 0;  // To play instantly, irrespective of previous sound finish
+    flapSound.play();
+    bird.flap();
+}
+
+// Add click listener to the canvas
 canvas.addEventListener("click", function(event) {
 
     switch (state.current) {
 
         case state.getReady:
-            swooshSound.currentTime = 0;  // To play instantly, irrespective of previous sound finish
-            swooshSound.play();
-            state.current = state.playing;
+            startGame();
             break;
         
         case state.playing:
-            flapSound.currentTime = 0;  // To play instantly, irrespective of previous sound finish
-            flapSound.play();
-            bird.flap();
+            flapBird();
             break;
 
         case state.gameOver:
@@ -55,6 +65,25 @@ canvas.addEventListener("click", function(event) {
             }
             
             break;
+    }
+});
+
+// Add key listener to the window
+window.addEventListener("keydown", function(event) {
+
+    // Check if the key pressed is "space bar"
+    if (event.keyCode == 32) {
+
+        switch (state.current) {
+
+            case state.getReady:
+                startGame();
+                break;
+            
+            case state.playing:
+                flapBird();
+                break;
+        }
     }
 });
 
