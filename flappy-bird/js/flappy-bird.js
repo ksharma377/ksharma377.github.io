@@ -40,10 +40,20 @@ canvas.addEventListener("click", function(event) {
             break;
 
         case state.gameOver:
-            bird.reset();
-            pipes.reset();
-            score.reset();
-            state.current = state.getReady;
+            let canvasCoordinates = canvas.getBoundingClientRect();
+            let clickX = event.clientX - canvasCoordinates.left;
+            let clickY = event.clientY - canvasCoordinates.top;
+
+            // Check if the "start" button is clicked
+            if (clickX >= startButton.x && clickX <= startButton.x + startButton.width &&
+                clickY >= startButton.y && clickY <= startButton.y + startButton.height) {
+
+                bird.reset();
+                pipes.reset();
+                score.reset();
+                state.current = state.getReady;
+            }
+            
             break;
     }
 });
@@ -392,6 +402,14 @@ const gameOver = {
                 this.destinationX, this.destinationY, this.width, this.height);
         }
     }
+}
+
+// Start Button
+const startButton = {
+    x: gameOver.destinationX + 71,
+    y: gameOver.destinationY + 173,
+    width: 83,
+    height: 29
 }
 
 // Update the objects
