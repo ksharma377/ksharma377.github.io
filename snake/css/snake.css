@@ -1,0 +1,21 @@
+* {
+	text-align: center !important;
+}
+
+.top-bar {
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	width: 100%;
+	background-color: #003300;
+	color: white;
+	padding: 15px;
+	font-family: "Josefin Sans", "Segoe UI", "Helvetica", arial, sans-serif;
+	font-size: 28px;
+	text-align: center;
+}
+
+#canvas {
+	border: 1px solid black;
+	margin-top: 100px;
+}
